@@ -17,12 +17,9 @@ function App() {
     });
   }, []);
 
-  <MainPage />
-
-  if (!user) return <Login onLogin = {setUser} />
-
   return (
     <div className="App">
+      <MainPage />
 
       <Routes>
         <Route path="/Home" element={<Home user={user} setUser={setUser} />} />

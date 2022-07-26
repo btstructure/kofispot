@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
-function IndividualCoffeeCommentCard() {
-  return (
-    <div>IndividualCoffeeCommentCard</div>
-  )
+function IndividualCoffeeCommentCard({comment}) {
+  return <div><p>{comment.comment} {comment.rating}</p></div>;
 }
 
-export default IndividualCoffeeCommentCard
+export default IndividualCoffeeCommentCard;

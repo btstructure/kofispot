@@ -6,6 +6,6 @@ class CoffeeSpotsController < ApplicationController
 
   def show
     coffee_spots = CoffeeSpot.find_by!(id: params[:id])
-    render json: coffee_spots, status: :ok
+    render json: coffee_spots, status: :ok, serializer: CoffeespotwithcommentSerializer
   end
 end

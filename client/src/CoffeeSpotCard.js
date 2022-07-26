@@ -1,6 +1,5 @@
 import React from "react";
-import IndividualCoffeeSpot from "./IndividualCoffeeSpot";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./App.css";
 
 function CoffeeSpotCard({ coffeespot }) {
@@ -11,12 +10,6 @@ function CoffeeSpotCard({ coffeespot }) {
   }
   return (
     <div>
-      {/* <Routes>
-        <Route
-          path={`/CoffeeSpot/${coffeespot.id}`}
-          element={<IndividualCoffeeSpot  coffeespot={coffeespot} />}
-        />
-      </Routes> */}
       <div
         onClick={handleNavigate}
         className="coffee-card"
