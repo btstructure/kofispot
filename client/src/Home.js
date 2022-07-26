@@ -1,25 +1,27 @@
-import React, { useState, useEffect } from "react"
-
+import React, { useState, useEffect } from "react";
+import CoffeeSpotCard from "./CoffeeSpotCard";
+import NavBar from "./NavBar";
 
 function Home() {
-  const [coffeeSpots, setCoffeeSpots] = useState([])
+  const [coffeeSpots, setCoffeeSpots] = useState([]);
 
   useEffect(() => {
     fetch("/coffeespots")
-    .then((response) => response.json())
-    .then(setCoffeeSpots)
-  }, [])
+      .then((response) => response.json())
+      .then(setCoffeeSpots);
+    console.log(coffeeSpots);
+  }, []);
 
-  
-
-
-  return(
+  return (
     <div className="Home">
-        <h1>KofiSpot</h1>
-        
-          
+      <NavBar />
+      <div className="coffee-card-container">
+        {coffeeSpots.map((coffeespot, e) => {
+          return <CoffeeSpotCard key={e} coffeespot={coffeespot} />;
+        })}
+      </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

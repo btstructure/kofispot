@@ -1,13 +1,9 @@
-import SignUpForm from "./SignUpForm"
-
-
+import SignUpForm from "./SignUpForm";
 
 function SignUp({ onSignUp }) {
-  
-  
   return (
     <div className="singup-form">
-      <SignUpForm onSignUp={onSignUp}/>
+      <SignUpForm onSignUp={onSignUp} />
     </div>
   );
 }

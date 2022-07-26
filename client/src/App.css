@@ -1,11 +1,22 @@
 body {
-  background-image: url(coffee-background.jpg) ;
-  /* background-position: center; */
-  background-repeat: no-repeat;
+  background: url(coffee-background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  object-fit: contain;
 }
-
 .App {
   text-align: center;
+}
+
+.coffee-card-container{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  width: 50%;
+}
+
+.image-card {
+  width: 250px;
+  height: 250px;
+
 }

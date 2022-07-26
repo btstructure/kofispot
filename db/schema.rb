@@ -13,6 +13,7 @@
 ActiveRecord::Schema[7.0].define(version: 2022_07_20_162029) do
   create_table "coffee_spots", force: :cascade do |t|
     t.string "name"
+    t.string "image_url"
     t.string "description"
     t.string "location"
     t.string "phonenumber"
