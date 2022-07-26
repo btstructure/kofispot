@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   get "/coffeespots", to: "coffee_spots#index"
-  get "/coffeespots", to: "coffee_spots#show"
+  get "/coffeespots/:id", to: "coffee_spots#show"
   # root "articles#index"
   get "/me", to: "users#show"
   post "/signup", to: "users#create"

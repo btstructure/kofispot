@@ -14,7 +14,7 @@ function CoffeeSpotCard({ coffeespot }) {
       {/* <Routes>
         <Route
           path={`/CoffeeSpot/${coffeespot.id}`}
-          element={<IndividualCoffeeSpot coffeespot={coffeespot} />}
+          element={<IndividualCoffeeSpot  coffeespot={coffeespot} />}
         />
       </Routes> */}
       <div
