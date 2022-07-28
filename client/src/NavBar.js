@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function NavBar({ setUser }) {
+function NavBar({ user, setUser }) {
   const navigate = useNavigate();
   function handleLogout() {
     fetch("/logout", { method: "DELETE" }).then((response) => {
@@ -14,7 +14,10 @@ function NavBar({ setUser }) {
   return (
     <div>
       <div>
-        <p onClick={handleLogout}>Logout</p>
+        <nav>
+          <p>Welcome {user.username}!</p>
+          <p onClick={handleLogout}>Logout</p>
+        </nav>
       </div>
     </div>
   );
