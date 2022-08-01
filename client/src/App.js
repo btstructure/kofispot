@@ -26,7 +26,7 @@ function App() {
         <Route path="/" element={<Login onLogin={setUser} />} />
         <Route
           path="/IndividualCoffeeSpot/:id"
-          element={<IndividualCoffeeSpot />}
+          element={<IndividualCoffeeSpot user={user} />}
         />
         <Route path="/SignUp" element={<SignUp onSignUp={setUser} />} />
       </Routes>

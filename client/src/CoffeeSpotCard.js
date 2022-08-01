@@ -6,8 +6,9 @@ function CoffeeSpotCard({ coffeespot }) {
   const navigate = useNavigate();
 
   function handleNavigate() {
-    navigate(`/IndividualCoffeeSpot/${coffeespot.id}`);
+    navigate(`/IndividualCoffeeSpot/${coffeespot.id}/`);
   }
+
   return (
     <div>
       <div

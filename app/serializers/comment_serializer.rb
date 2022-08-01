@@ -1,6 +1,6 @@
 class CommentSerializer < ActiveModel::Serializer
-  attributes :id, :rating, :comment
+  attributes :id, :rating, :comment, :coffee_spot_id, :user
 
-  has_one :user
-  has_one :coffeespot
+  belongs_to :user
+  has_one :coffee_spot
 end

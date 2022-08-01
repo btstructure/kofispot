@@ -16,13 +16,18 @@ class CommentsController < ApplicationController
   
   def update
     updated_review = Comment.find(params[:comment_id])
+    updated_review.update(comment: params[:comment])
     render json: updated_review, status: :created
   end
 
   def destroy 
     
     comment = Comment.find(params[:comment_id])
+    if session[:user_id] == comment.user_id
     comment.destroy
+    end
+
+    # render json: params[:comment.id]
 
     head :no_content
   end

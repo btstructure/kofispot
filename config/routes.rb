@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   get "/coffeespots", to: "coffee_spots#index"
   get "/coffeespots/:id", to: "coffee_spots#show"
-  get "/coffeespots/:id", to: "comments#show"
+  # get "/coffeespots/:id", to: "comments#show"
   delete "/deletecomment/:comment_id", to: "comments#destroy"
   patch "/newcomment/:comment_id", to: "comments#update" 
-  post "/newcomment/", to: "comments#create"
+  post "/newcomment/:comment_id", to: "comments#create"
   # root "articles#index"
   get "/me", to: "users#show"
   post "/signup", to: "users#create"

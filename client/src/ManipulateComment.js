@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 
-function ManipulateComment({ comment, setIndividualCoffeeSpot }) {
-  const [editComment, setEditComment] = useState(comment);
-
+function ManipulateComment({
+  comment,
+  setIndividualCoffeeSpot,
+  individualCoffeeSpot,
+  setEditComment,
+  editComment
+}) {
   function handleDelete() {
     fetch(`/deletecomment/${comment.id}`, {
       method: "DELETE",
@@ -16,24 +20,17 @@ function ManipulateComment({ comment, setIndividualCoffeeSpot }) {
       );
   }
 
-  function handleEditComment() {
-    fetch(`/comment/${comment.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        comment: editComment,
-      }),
-    })
-      .then((response) => response.json())
-      .then(setIndividualCoffeeSpot());
-  }
 
   return (
     <div>
       <button onClick={handleDelete}>x</button>
-      <button onClick={handleEditComment}>Edit comment</button>
+      <button
+        onClick={() =>
+          !editComment ? setEditComment(comment.comment) : setEditComment("")
+        }
+      >
+        {editComment ? "Cancel" : "Edit Comment" }
+      </button>
     </div>
   );
 }

@@ -4,8 +4,6 @@ import NavBar from "./NavBar";
 
 function Home({ user, setUser }) {
   const [coffeeSpots, setCoffeeSpots] = useState([]);
-  console.log(user)
-
   useEffect(() => {
     fetch("/coffeespots")
       .then((response) => response.json())
@@ -18,7 +16,7 @@ function Home({ user, setUser }) {
       <NavBar user={user} setUser={setUser} />
       <div className="coffee-card-container">
         {coffeeSpots.map((coffeespot, e) => {
-          return <CoffeeSpotCard key={e} coffeespot={coffeespot} />;
+          return <CoffeeSpotCard key={e} coffeespot={coffeespot} user={user} />;
         })}
       </div>
     </div>

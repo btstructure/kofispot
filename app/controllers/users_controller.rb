@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def show
     user = User.find(session[:user_id])
-    render json: user
+    render json: user, status: :ok, serializer: UserwithcommentSerializer
   end
 
   private

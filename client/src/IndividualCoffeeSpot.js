@@ -3,7 +3,7 @@ import IndividualCoffeeCommentCard from "./IndividualCoffeeCommentCard";
 import { useParams } from "react-router-dom";
 import AddComment from "./AddComment";
 
-function IndividualCoffeeSpot() {
+function IndividualCoffeeSpot({ user }) {
   const [individualCoffeeSpot, setIndividualCoffeeSpot] = useState({});
   let { id } = useParams();
 
@@ -25,10 +25,21 @@ function IndividualCoffeeSpot() {
         <p>{individualCoffeeSpot.location}</p>
         <p>{individualCoffeeSpot.phonenumber}</p>
         <p>{individualCoffeeSpot.description}</p>
-        {individualCoffeeSpot["comments"]?.map((comment, e) => (
-          <IndividualCoffeeCommentCard key={e} comment={comment} setIndividualCoffeeSpot={setIndividualCoffeeSpot} />
-        ))}
-        <AddComment setIndividualCoffeeSpot={setIndividualCoffeeSpot} />
+        {user &&
+          individualCoffeeSpot["comments"]?.map((comment, e) => (
+            <IndividualCoffeeCommentCard
+              key={e}
+              comment={comment}
+              individualCoffeeSpot = {individualCoffeeSpot}
+              setIndividualCoffeeSpot={setIndividualCoffeeSpot}
+              user={user}
+            />
+          ))}
+        <AddComment
+          individualCoffeeSpot={individualCoffeeSpot}
+          setIndividualCoffeeSpot={setIndividualCoffeeSpot}
+          user={user}
+        />
       </div>
     </div>
   );
