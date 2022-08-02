@@ -17,7 +17,7 @@ function ManipulateComment({
           ...v,
           comments: v.comments.filter((e) => e != comment),
           average_rating:
-          v.average_rating + (comment.rating - v.average_rating) / (v.comments.length - 1),
+          (v.average_rating * individualCoffeeSpot.comments.length - comment.rating) / (individualCoffeeSpot.comments.length - 1)
         }))
       );
   }
