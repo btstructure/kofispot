@@ -7,9 +7,8 @@ function IndividualCoffeeCommentCard({
   user,
   individualCoffeeSpot,
 }) {
-  console.log(comment);
+  console.log(individualCoffeeSpot);
   const [editComment, setEditComment] = useState("");
-
   function handleSave(e) {
     e.preventDefault();
     fetch(`/newcomment/${comment.id}`, {
@@ -30,6 +29,10 @@ function IndividualCoffeeCommentCard({
         setEditComment("");
       });
   }
+
+
+
+
   return (
     <div>
       <p>{comment.user.username}</p>
@@ -42,7 +45,9 @@ function IndividualCoffeeCommentCard({
           <button>Save</button>
         </form>
       ) : (
-        <p>{comment.comment} {comment.rating}</p> 
+        <p>
+          {comment.comment} {comment.rating}
+        </p>
       )}
       {comment.user.id === user.id && (
         <ManipulateComment

@@ -4,12 +4,15 @@ import NavBar from "./NavBar";
 
 function Home({ user, setUser }) {
   const [coffeeSpots, setCoffeeSpots] = useState([]);
+
   useEffect(() => {
     fetch("/coffeespots")
       .then((response) => response.json())
       .then(setCoffeeSpots);
     console.log(coffeeSpots);
   }, []);
+
+
 
   return (
     <div className="Home">

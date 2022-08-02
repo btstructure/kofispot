@@ -5,6 +5,7 @@ import AddComment from "./AddComment";
 
 function IndividualCoffeeSpot({ user }) {
   const [individualCoffeeSpot, setIndividualCoffeeSpot] = useState({});
+
   let { id } = useParams();
 
   useEffect(() => {
@@ -30,7 +31,7 @@ function IndividualCoffeeSpot({ user }) {
             <IndividualCoffeeCommentCard
               key={e}
               comment={comment}
-              individualCoffeeSpot = {individualCoffeeSpot}
+              individualCoffeeSpot={individualCoffeeSpot}
               setIndividualCoffeeSpot={setIndividualCoffeeSpot}
               user={user}
             />

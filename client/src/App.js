@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      <MainPage />
+      <h1>KofiSpot</h1>
 
       <Routes>
         <Route path="/Home" element={<Home user={user} setUser={setUser} />} />

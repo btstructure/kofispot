@@ -5,7 +5,7 @@ function ManipulateComment({
   setIndividualCoffeeSpot,
   individualCoffeeSpot,
   setEditComment,
-  editComment
+  editComment,
 }) {
   function handleDelete() {
     fetch(`/deletecomment/${comment.id}`, {
@@ -16,10 +16,11 @@ function ManipulateComment({
         setIndividualCoffeeSpot((v) => ({
           ...v,
           comments: v.comments.filter((e) => e != comment),
+          average_rating:
+          v.average_rating + (comment.rating - v.average_rating) / (v.comments.length - 1),
         }))
       );
   }
-
 
   return (
     <div>
@@ -29,7 +30,7 @@ function ManipulateComment({
           !editComment ? setEditComment(comment.comment) : setEditComment("")
         }
       >
-        {editComment ? "Cancel" : "Edit Comment" }
+        {editComment ? "Cancel" : "Edit Comment"}
       </button>
     </div>
   );

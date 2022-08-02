@@ -9,6 +9,7 @@ function CoffeeSpotCard({ coffeespot }) {
     navigate(`/IndividualCoffeeSpot/${coffeespot.id}/`);
   }
 
+
   return (
     <div>
       <div
