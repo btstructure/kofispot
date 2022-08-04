@@ -3,8 +3,9 @@ import { Routes, Route } from "react-router-dom";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import Home from "./Home";
-import MainPage from "./MainPage";
+import About from "./About";
 import IndividualCoffeeSpot from "./IndividualCoffeeSpot";
+import NavBar from "./NavBar";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -19,11 +20,17 @@ function App() {
 
   return (
     <div className="App">
-      <h1>KofiSpot</h1>
-
+     {user ? null : <h1>KofiSpot</h1>}
+     {user ? <NavBar user={user} setUser={setUser} /> : null}
       <Routes>
-        <Route path="/Home" element={<Home user={user} setUser={setUser} />} />
+        {user && (
+          <Route
+            path="/Home"
+            element={<Home user={user} setUser={setUser} />}
+          />
+        )}
         <Route path="/" element={<Login onLogin={setUser} />} />
+        <Route path="/About" element={<About />} />
         <Route
           path="/IndividualCoffeeSpot/:id"
           element={<IndividualCoffeeSpot user={user} />}

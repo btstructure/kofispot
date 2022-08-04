@@ -14,6 +14,8 @@ function IndividualCoffeeSpot({ user }) {
       .then(setIndividualCoffeeSpot);
   }, []);
 
+  
+
   return (
     <div>
       <div>

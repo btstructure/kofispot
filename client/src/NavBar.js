@@ -11,12 +11,32 @@ function NavBar({ user, setUser }) {
       }
     });
   }
+
+  function handleAbout() {
+    navigate("/About");
+  }
+
+  function handleHome() {
+    navigate("/Home");
+  }
+
   return (
     <div>
       <div>
-        <nav>
-          <p>Welcome {user.username}!</p>
-          <p onClick={handleLogout}>Logout</p>
+        <nav className="navbar">
+          <ul>
+            <li>KofiSpot</li>
+            <li>Welcome {user.username}!</li>
+            <li>
+              <p onClick={handleHome}>Home</p>
+            </li>
+            <li>
+              <p onClick={handleAbout}>About</p>
+            </li>
+            <li>
+              <p onClick={handleLogout}>Logout</p>
+            </li>
+          </ul>
         </nav>
       </div>
     </div>

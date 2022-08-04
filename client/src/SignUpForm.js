@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function SignUpForm({ onLogin }) {
+function SignUpForm({ onSignUp }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -25,10 +25,13 @@ function SignUpForm({ onLogin }) {
         if (d.errors) {
           alert(d.errors[0]);
         } else {
+          onSignUp(true)
           navigate("/Home");
         }
       });
   }
+
+
 
   return (
     <form onSubmit={handleSubmit}>

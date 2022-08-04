@@ -1,28 +1,43 @@
 body {
-  background: url(coffee-background.jpg) no-repeat center center fixed; 
+  background: url(coffee-background.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
+
 .App {
   text-align: center;
 }
 
-.coffee-card-container{
+.coffee-card-container {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   width: 50%;
 }
 
 .image-card {
   width: 250px;
   height: 250px;
-
 }
 
-.individual-coffee-spot-image{
+.individual-coffee-spot-image {
   width: 750px;
   height: 500px;
+}
 
+ul {
+  padding: 0;
+  background: url(https://t4.ftcdn.net/jpg/04/16/21/59/360_F_416215928_QXQJPJE3wtgeOLmkBy0j0hemFZZgvt1B.jpg);
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+li {
+  display: inline-block;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
 }
