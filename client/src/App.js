@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import Login from "./Login";
-import SignUp from "./SignUp";
-import Home from "./Home";
-import About from "./About";
-import IndividualCoffeeSpot from "./IndividualCoffeeSpot";
-import NavBar from "./NavBar";
+import Login from "./Authentication/Login";
+import SignUp from "./Authentication/SignUp";
+import Home from "./HomePage/Home";
+import About from "./MainPage/About";
+import MyProfile from "./MainPage/MyProfile";
+import IndividualCoffeeSpot from "./Comments/IndividualCoffeeSpot";
+import NavBar from "./NavBar/NavBar";
+import { BiCoffeeTogo } from "react-icons/bi";
+import "./App.css"
 
 function App() {
   const [user, setUser] = useState(null);
@@ -20,8 +23,12 @@ function App() {
 
   return (
     <div className="App">
-     {user ? null : <h1>KofiSpot</h1>}
-     {user ? <NavBar user={user} setUser={setUser} /> : null}
+      {user ? null : (
+        <h1 className="text-white">
+          KofiSpot <BiCoffeeTogo />
+        </h1>
+      )}
+      {user ? <NavBar user={user} setUser={setUser} /> : null}
       <Routes>
         {user && (
           <Route
@@ -29,8 +36,12 @@ function App() {
             element={<Home user={user} setUser={setUser} />}
           />
         )}
-        <Route path="/" element={<Login onLogin={setUser} />} />
+        <Route  path="/" element={<Login onLogin={setUser}   />} />
         <Route path="/About" element={<About />} />
+        <Route
+          path="/MyProfile"
+          element={<MyProfile user={user} setUser={setUser} />}
+        />
         <Route
           path="/IndividualCoffeeSpot/:id"
           element={<IndividualCoffeeSpot user={user} />}

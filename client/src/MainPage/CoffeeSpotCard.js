@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./App.css";
 
 function CoffeeSpotCard({ coffeespot }) {
   const navigate = useNavigate();
@@ -9,16 +8,16 @@ function CoffeeSpotCard({ coffeespot }) {
     navigate(`/IndividualCoffeeSpot/${coffeespot.id}/`);
   }
 
-
   return (
-    <div>
+    <div className="text-center text-white">
       <div
         onClick={handleNavigate}
-        className="coffee-card"
         coffeespot={coffeespot}
       >
         <p>{coffeespot.name}</p>
-        <img src={coffeespot.image_url} className="image-card" />
+        <div>
+          <img style={{height:'250px', width: '250px'}}src={coffeespot.image_url} />
+        </div>
         <p>{coffeespot.average_rating}/5</p>
         <p>{coffeespot.location}</p>
       </div>

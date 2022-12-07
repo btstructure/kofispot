@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import CoffeeSpotCard from "./CoffeeSpotCard";
+import CoffeeSpotCard from "../MainPage/CoffeeSpotCard";
 
 function Home({ user, setUser }) {
   const [coffeeSpots, setCoffeeSpots] = useState([]);
@@ -11,15 +11,11 @@ function Home({ user, setUser }) {
     console.log(coffeeSpots);
   }, []);
 
-
-
   return (
-    <div className="Home">
-      <div className="coffee-card-container">
-        {coffeeSpots.map((coffeespot, e) => {
-          return <CoffeeSpotCard key={e} coffeespot={coffeespot} user={user} />;
-        })}
-      </div>
+    <div className="display">
+      {coffeeSpots.map((coffeespot, e) => {
+        return <CoffeeSpotCard key={e} coffeespot={coffeespot} user={user} />;
+      })}
     </div>
   );
 }

@@ -12,7 +12,7 @@ function AddComment({ individualCoffeeSpot, setIndividualCoffeeSpot, user }) {
       ...v,
       comments: [...v.comments, newComment],
       average_rating:
-        v.average_rating + (newRating - v.average_rating) / (v.comments.length  + 1),
+        (v.average_rating + (newRating - v.average_rating) / (v.comments.length  + 1)),
     }));
   }
 

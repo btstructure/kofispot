@@ -2,7 +2,7 @@ import SignUpForm from "./SignUpForm";
 
 function SignUp({ onSignUp }) {
   return (
-    <div className="singup-form">
+    <div>
       <SignUpForm onSignUp={onSignUp} />
     </div>
   );
