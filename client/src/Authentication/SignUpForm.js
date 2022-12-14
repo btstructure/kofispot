@@ -43,7 +43,7 @@ function SignUpForm({ onSignUp }) {
     >
       <div style={{padding: '10px', borderRadius: '20px', backgroundColor: 'rgba(20, 23, 25, 120)', border: '2px solid #ccc'}}>
         <div className="text-center">
-          <h1 className="text-white">SignUp</h1>
+          <h1 className="text-white">Sign Up</h1>
         </div>
         <input
           type="text"

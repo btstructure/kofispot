@@ -9,14 +9,16 @@ function CoffeeSpotCard({ coffeespot }) {
   }
 
   return (
-    <div className="text-center text-white">
-      <div
-        onClick={handleNavigate}
-        coffeespot={coffeespot}
-      >
+    <div className="text-center text-white hover-zoom">
+      <div onClick={handleNavigate} coffeespot={coffeespot}>
         <p>{coffeespot.name}</p>
-        <div>
-          <img style={{height:'250px', width: '250px'}}src={coffeespot.image_url} />
+        <div className="">
+          <img
+            className="rounded-circle hover-shadow" 
+            style={{ height: "250px", width: "250px" }}
+            src={coffeespot.image_url}
+            alt=""
+          />
         </div>
         <p>{coffeespot.average_rating}/5</p>
         <p>{coffeespot.location}</p>
