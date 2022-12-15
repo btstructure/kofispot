@@ -4,7 +4,7 @@ function MyProfile({user, setUser}) {
     
 
   return (
-    <div>
+    <div className="text-white">
         <h1>My Profile</h1>
         <h2>Username: {user.username}</h2>
 

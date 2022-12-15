@@ -1,18 +1,17 @@
-body,
 html {
   height: 100%;
 }
 
-.App {
-  background-image: url('mainpage.jpg');
+body {
+  background-image: url("mainpage.jpg");
   /* height: 100vh; */
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover, contain;
 }
 
 .navbar {
-  background-image: url('navbar.jpg');
+  background-image: url("navbar.jpg");
 }
 
 .display {
@@ -21,4 +20,3 @@ html {
   width: 50%;
   margin: 0 auto;
 }
-
