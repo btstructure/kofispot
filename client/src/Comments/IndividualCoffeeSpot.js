@@ -18,7 +18,7 @@ function IndividualCoffeeSpot({ user }) {
     <div>
       <div className="text-white text-center">
         <p>{individualCoffeeSpot.name}</p>
-        <img style={{height: '400px', width: '600px'}}  src={individualCoffeeSpot.image_url} />
+        <img  src={individualCoffeeSpot.image_url} />
         <p>{individualCoffeeSpot.average_rating}/5</p>
         <p>{individualCoffeeSpot.location}</p>
         <p>{individualCoffeeSpot.phonenumber}</p>
