@@ -34,8 +34,8 @@ function NavBar({ user, setUser }) {
         <Navbar.Brand>
           KofiSpot <BiCoffeeTogo />
         </Navbar.Brand>
-        <Navbar.Text>Welcome {user.username}!</Navbar.Text>
-        <Navbar.Collapse>
+        <Navbar.Text className="welcome">Welcome {user.username}!</Navbar.Text>
+        <Navbar.Collapse className="navbar-content">
           <Nav.Link onClick={handleHome}>Home</Nav.Link>
           <Nav.Link onClick={handleAbout}>About</Nav.Link>
           <Nav.Link onClick={handleMyProfile}>My Profile</Nav.Link>

@@ -24,7 +24,7 @@ function App() {
   return (
     <div className="App">
       {user ? null : (
-        <h1 className="text-white">
+        <h1 className="text-white justify-content-left">
           KofiSpot <BiCoffeeTogo />
         </h1>
       )}
