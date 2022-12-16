@@ -8,7 +8,7 @@ function ManipulateComment({
   editComment,
 }) {
   function handleDelete() {
-    fetch(`/deletecomment/${comment.id}`, {
+    fetch(`/api/deletecomment/${comment.id}`, {
       method: "DELETE",
     })
       .then((response) => response.json())
@@ -17,7 +17,9 @@ function ManipulateComment({
           ...v,
           comments: v.comments.filter((e) => e != comment),
           average_rating:
-          (v.average_rating * individualCoffeeSpot.comments.length - comment.rating) / (individualCoffeeSpot.comments.length - 1)
+            (v.average_rating * individualCoffeeSpot.comments.length -
+              comment.rating) /
+            (individualCoffeeSpot.comments.length - 1),
         }))
       );
   }

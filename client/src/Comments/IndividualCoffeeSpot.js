@@ -9,7 +9,7 @@ function IndividualCoffeeSpot({ user }) {
   let { id } = useParams();
 
   useEffect(() => {
-    fetch(`/coffeespots/${id}`)
+    fetch(`/api/coffeespots/${id}`)
       .then((response) => response.json())
       .then(setIndividualCoffeeSpot);
   }, []);
@@ -18,7 +18,10 @@ function IndividualCoffeeSpot({ user }) {
     <div>
       <div className="text-white text-center">
         <p>{individualCoffeeSpot.name}</p>
-        <img style={{height: '400px', width: '600px'}}  src={individualCoffeeSpot.image_url} />
+        <img
+          style={{ height: "400px", width: "600px" }}
+          src={individualCoffeeSpot.image_url}
+        />
         <p>{individualCoffeeSpot.average_rating}/5</p>
         <p>{individualCoffeeSpot.location}</p>
         <p>{individualCoffeeSpot.phonenumber}</p>

@@ -12,7 +12,8 @@ function AddComment({ individualCoffeeSpot, setIndividualCoffeeSpot, user }) {
       ...v,
       comments: [...v.comments, newComment],
       average_rating:
-        (v.average_rating + (newRating - v.average_rating) / (v.comments.length  + 1)),
+        v.average_rating +
+        (newRating - v.average_rating) / (v.comments.length + 1),
     }));
   }
 
@@ -25,7 +26,7 @@ function AddComment({ individualCoffeeSpot, setIndividualCoffeeSpot, user }) {
       coffee_spot_id: id,
       user_id: user.id,
     };
-    fetch(`/newcomment/${id}`, {
+    fetch(`/api/newcomment/${id}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

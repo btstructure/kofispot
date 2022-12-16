@@ -8,7 +8,7 @@ import Navbar from "react-bootstrap/Navbar";
 function NavBar({ user, setUser }) {
   const navigate = useNavigate();
   function handleLogout() {
-    fetch("/logout", { method: "DELETE" }).then((response) => {
+    fetch("/api/logout", { method: "DELETE" }).then((response) => {
       if (response.ok) {
         setUser(null);
         navigate("/");

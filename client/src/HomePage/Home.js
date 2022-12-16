@@ -5,7 +5,7 @@ function Home({ user, setUser }) {
   const [coffeeSpots, setCoffeeSpots] = useState([]);
 
   useEffect(() => {
-    fetch("/coffeespots")
+    fetch("/api/coffeespots")
       .then((response) => response.json())
       .then(setCoffeeSpots);
     console.log(coffeeSpots);

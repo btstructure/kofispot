@@ -1,4 +1,4 @@
-class CoffeeSpotsController < ApplicationController
+class Api::CoffeeSpotsController < ApplicationController
   def index
     coffee_spot = CoffeeSpot.all
     render json: coffee_spot, status: :ok

@@ -8,7 +8,7 @@ function LoginForm({ onLogin }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/login", {
+    fetch("/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -25,7 +25,7 @@ function LoginForm({ onLogin }) {
         }
       });
   }
-  
+
   function handleSignUp() {
     navigate("/SignUp");
   }
@@ -33,10 +33,17 @@ function LoginForm({ onLogin }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="d-flex justify-content-center align-items-center"  
-      style = {{height: "90vh"}}
+      className="d-flex justify-content-center align-items-center"
+      style={{ height: "90vh" }}
     >
-      <div style={{padding: '10px', borderRadius: '20px', backgroundColor: 'rgba(20, 23, 25, 120)', border: '2px solid #ccc' }}>
+      <div
+        style={{
+          padding: "10px",
+          borderRadius: "20px",
+          backgroundColor: "rgba(20, 23, 25, 120)",
+          border: "2px solid #ccc",
+        }}
+      >
         <div className="text-center">
           <h1 className="text-white">Login</h1>
         </div>
@@ -63,7 +70,11 @@ function LoginForm({ onLogin }) {
         </div>
         <div className="text-center mt-3">
           <p className="text-center text-white">Don't have an account?</p>
-          <p className="text-center text-white" onClick={handleSignUp} type="submit">
+          <p
+            className="text-center text-white"
+            onClick={handleSignUp}
+            type="submit"
+          >
             Sign up
           </p>
         </div>

@@ -8,13 +8,13 @@ import MyProfile from "./MainPage/MyProfile";
 import IndividualCoffeeSpot from "./Comments/IndividualCoffeeSpot";
 import NavBar from "./NavBar/NavBar";
 import { BiCoffeeTogo } from "react-icons/bi";
-import "./App.css"
+import "./App.css";
 
 function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch("/me").then((response) => {
+    fetch("/api/me").then((response) => {
       if (response.ok) {
         response.json().then((user) => setUser(user));
       }
@@ -36,7 +36,7 @@ function App() {
             element={<Home user={user} setUser={setUser} />}
           />
         )}
-        <Route  path="/" element={<Login onLogin={setUser}   />} />
+        <Route path="/" element={<Login onLogin={setUser} />} />
         <Route path="/About" element={<About />} />
         <Route
           path="/MyProfile"

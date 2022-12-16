@@ -11,7 +11,7 @@ function IndividualCoffeeCommentCard({
   const [editComment, setEditComment] = useState("");
   function handleSave(e) {
     e.preventDefault();
-    fetch(`/newcomment/${comment.id}`, {
+    fetch(`/api/newcomment/${comment.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -29,9 +29,6 @@ function IndividualCoffeeCommentCard({
         setEditComment("");
       });
   }
-
-
-
 
   return (
     <div>
