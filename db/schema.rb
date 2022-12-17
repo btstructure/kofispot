@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_07_20_162029) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "coffee_spots", force: :cascade do |t|
     t.string "name"
     t.string "image_url"
@@ -25,8 +28,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_162029) do
   create_table "comments", force: :cascade do |t|
     t.integer "rating"
     t.string "comment"
-    t.integer "user_id"
-    t.integer "coffee_spot_id"
+    t.bigint "user_id"
+    t.bigint "coffee_spot_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["coffee_spot_id"], name: "index_comments_on_coffee_spot_id"
@@ -35,8 +38,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_162029) do
 
   create_table "events", force: :cascade do |t|
     t.integer "time"
-    t.integer "coffee_spot_id"
-    t.integer "users_id"
+    t.bigint "coffee_spot_id"
+    t.bigint "users_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["coffee_spot_id"], name: "index_events_on_coffee_spot_id"
@@ -46,7 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_162029) do
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
-    t.integer "events_id"
+    t.bigint "events_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["events_id"], name: "index_users_on_events_id"
