@@ -29,17 +29,27 @@ function NavBar({ user, setUser }) {
   }
 
   return (
-    <Navbar className="navbar">
+    <Navbar className="navbar d-flex justify-content-center">
       <Container>
-        <Navbar.Brand>
-          KofiSpot <BiCoffeeTogo />
+        <Navbar.Brand className="px-3 text-white fs-5">
+          KofiSpot <BiCoffeeTogo  />
         </Navbar.Brand>
-        <Navbar.Text className="welcome">Welcome {user.username}!</Navbar.Text>
-        <Navbar.Collapse className="navbar-content">
-          <Nav.Link onClick={handleHome}>Home</Nav.Link>
-          <Nav.Link onClick={handleAbout}>About</Nav.Link>
-          <Nav.Link onClick={handleMyProfile}>My Profile</Nav.Link>
-          <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+        <Navbar.Text className="d-flex justify-content-center text-white fs-5">
+          Welcome {user.username}!
+        </Navbar.Text>
+        <Navbar.Collapse className="navbar-content justify-content-end align-items-start flex-row">
+          <Nav.Link className="px-3 text-white  fs-5" onClick={handleHome}>
+            Home
+          </Nav.Link>
+          <Nav.Link className="px-3 text-white fs-5" onClick={handleAbout}>
+            About
+          </Nav.Link>
+          <Nav.Link className="px-3 text-white fs-5" onClick={handleMyProfile}>
+            My Profile
+          </Nav.Link>
+          <Nav.Link className="px-3 text-white fs-5" onClick={handleLogout}>
+            Logout
+          </Nav.Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>

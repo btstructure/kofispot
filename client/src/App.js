@@ -8,6 +8,8 @@ import MyProfile from "./MainPage/MyProfile";
 import IndividualCoffeeSpot from "./Comments/IndividualCoffeeSpot";
 import NavBar from "./NavBar/NavBar";
 import { BiCoffeeTogo } from "react-icons/bi";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import "./App.css";
 
 function App() {
@@ -22,9 +24,9 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div>
       {user ? null : (
-        <h1 className="text-white justify-content-left">
+        <h1 className="text-white justify-content-left p-3">
           KofiSpot <BiCoffeeTogo />
         </h1>
       )}

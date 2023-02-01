@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Button from 'react-bootstrap/Button'
+import {Form, FormControl} from 'react-bootstrap'
 
 function AddComment({ individualCoffeeSpot, setIndividualCoffeeSpot, user }) {
   const { id, rating } = individualCoffeeSpot;
@@ -39,18 +41,28 @@ function AddComment({ individualCoffeeSpot, setIndividualCoffeeSpot, user }) {
 
   return (
     <div>
-      <form onSubmit={handleNewComment}>
-        <input
+      <Form onSubmit={handleNewComment}>
+        <FormControl
           type="text"
           value={newComment}
           required
           onChange={(e) => setNewComment(e.target.value)}
+          as="textarea"
+          rows="2"
+          placeholder="Enter your comment..."
+          maxLength="200"
+          style={{
+            resize: 'none',
+            height: '100px',
+            width: '500px'
+          }}
         />
         <select
           value={rating}
           type="integer"
           defaultValue={"default"}
           onChange={(e) => setNewRating(e.target.value)}
+          
         >
           <option value="1">1</option>
           <option value="2">2</option>
@@ -58,8 +70,10 @@ function AddComment({ individualCoffeeSpot, setIndividualCoffeeSpot, user }) {
           <option value="4">4</option>
           <option value="5">5</option>
         </select>
-        <button type="submit">Submit</button>
-      </form>
+        <div className="p-2 justify-content-center d-flex">
+          <Button variant="secondary"  type="submit">Submit</Button>
+        </div>
+      </Form>
     </div>
   );
 }

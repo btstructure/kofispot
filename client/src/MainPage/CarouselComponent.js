@@ -12,11 +12,10 @@ function CarouselComponent() {
   }, []);
 
   return (
-    <Carousel className="justify-content-center align-items-center">
+    <Carousel>
       {coffeeSpots.map((coffeespot) => (
         <Carousel.Item key={coffeespot.id}>
           <img
-            style={{ width: "100%", maxHeight: "750px" }}
             alt=""
             src={coffeespot.image_url}
           />

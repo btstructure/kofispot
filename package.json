@@ -1,6 +1,9 @@
 {
   "dependencies": {
+    "components": "^0.1.0",
     "mdb-react-ui-kit": "^5.0.0",
-    "mdb-ui-kit": "^6.0.1"
+    "mdb-ui-kit": "^6.0.1",
+    "react-icons": "^4.7.1",
+    "styled": "^1.0.0"
   }
 }

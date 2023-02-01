@@ -1,34 +1,16 @@
-html {
-  height: 100%;
-}
-
-body {
-  background-image: url("mainpage.jpg");
-  /* height: 100vh; */
-  background-position: center;
+html, body {
+  background-image: url("main-page.jpg");
+  background-size: cover;
   background-repeat: no-repeat;
-  background-size: cover, contain, auto;
+  background-attachment: fixed;
+  background-position: center;
+  height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+
 }
 
 .navbar {
-  background-image: url("navbar.jpg");
+    background-image: url("nav-bar.jpg");
 }
 
-.navbar-content {
-  justify-content: right;
-}
-
-.display {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  width: 50%;
-  margin: 0 auto;
-}
-
-.logo {
-  justify-content: left;
-}
-
-.welcome {
-  justify-content: center;
-}

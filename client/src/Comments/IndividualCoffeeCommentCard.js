@@ -31,30 +31,36 @@ function IndividualCoffeeCommentCard({
   }
 
   return (
-    <div>
-      <p>{comment.user.username}</p>
-      {editComment ? (
-        <form onSubmit={handleSave}>
-          <input
-            value={editComment}
-            onChange={(e) => setEditComment(e.target.value)}
-          />
-          <button>Save</button>
-        </form>
-      ) : (
-        <p>
-          {comment.comment} {comment.rating}
-        </p>
-      )}
-      {comment.user.id === user.id && (
-        <ManipulateComment
-          comment={comment}
-          individualCoffeeSpot={individualCoffeeSpot}
-          setIndividualCoffeeSpot={setIndividualCoffeeSpot}
-          setEditComment={setEditComment}
-          editComment={editComment}
-        />
-      )}
+    <div className="p-2">
+      <div className="border rounded">
+        <div className="px-3">
+          <p className="d-flex justify-content-center">
+            User: {comment.user.username}
+          </p>
+          {editComment ? (
+            <form onSubmit={handleSave}>
+              <input
+                value={editComment}
+                onChange={(e) => setEditComment(e.target.value)}
+              />
+              <button>Save</button>
+            </form>
+          ) : (
+            <p>
+              {comment.comment} {comment.rating}
+            </p>
+          )}
+          {comment.user.id === user.id && (
+            <ManipulateComment
+              comment={comment}
+              individualCoffeeSpot={individualCoffeeSpot}
+              setIndividualCoffeeSpot={setIndividualCoffeeSpot}
+              setEditComment={setEditComment}
+              editComment={editComment}
+            />
+          )}
+        </div>
+      </div>
     </div>
   );
 }

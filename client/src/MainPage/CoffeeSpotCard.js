@@ -9,19 +9,30 @@ function CoffeeSpotCard({ coffeespot }) {
   }
 
   return (
-    <div className="text-center text-white hover-zoom">
+    <div>
       <div onClick={handleNavigate} coffeespot={coffeespot}>
-        <p>{coffeespot.name}</p>
-        <div className="">
+        <p className="text-white d-flex justify-content-center">
+          {coffeespot.name}
+        </p>
+        <div className="d-flex justify-content-center"
+        >
           <img
-            className="rounded-circle hover-shadow" 
-            style={{ height: "250px", width: "250px" }}
             src={coffeespot.image_url}
             alt=""
+            style={{
+              width: 200,
+              height: 200,
+              objectFit: "cover",
+            }}
+            className="rounded-circle"
           />
         </div>
-        <p>{coffeespot.average_rating}/5</p>
-        <p>{coffeespot.location}</p>
+        <p className="text-white d-flex justify-content-center">
+          {coffeespot.average_rating}/5
+        </p>
+        <p className="text-white d-flex justify-content-center">
+          {coffeespot.location}
+        </p>
       </div>
     </div>
   );
