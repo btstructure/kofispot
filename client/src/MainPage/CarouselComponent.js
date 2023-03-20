@@ -15,10 +15,16 @@ function CarouselComponent() {
     <Carousel>
       {coffeeSpots.map((coffeespot) => (
         <Carousel.Item key={coffeespot.id}>
-          <img
-            alt=""
-            src={coffeespot.image_url}
-          />
+          <div style={{
+            height: '500px',
+            width: 100,
+            objectFit: 'cover'
+          }}>
+            <img
+              alt=""
+              src={coffeespot.image_url}
+            />
+          </div>
           <Carousel.Caption>
             <h3>{coffeespot.name}</h3>
           </Carousel.Caption>

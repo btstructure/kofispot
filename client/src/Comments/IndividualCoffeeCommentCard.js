@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ManipulateComment from "./ManipulateComment";
+import { FaStar } from "react-icons/fa";
 
 function IndividualCoffeeCommentCard({
   comment,
@@ -34,9 +35,14 @@ function IndividualCoffeeCommentCard({
     <div className="p-2">
       <div className="border rounded">
         <div className="px-3">
-          <p className="d-flex justify-content-center">
-            User: {comment.user.username}
-          </p>
+          <div>
+            <p className="d-flex justify-content-center">
+              User: {comment.user.username}
+            </p>
+              {comment.rating} <FaStar />
+            <p></p>
+          </div>
+
           {editComment ? (
             <form onSubmit={handleSave}>
               <input
@@ -46,9 +52,7 @@ function IndividualCoffeeCommentCard({
               <button>Save</button>
             </form>
           ) : (
-            <p>
-              {comment.comment} {comment.rating}
-            </p>
+            <p>{comment.comment}</p>
           )}
           {comment.user.id === user.id && (
             <ManipulateComment

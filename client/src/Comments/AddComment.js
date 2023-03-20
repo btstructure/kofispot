@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import Button from 'react-bootstrap/Button'
-import {Form, FormControl} from 'react-bootstrap'
+import Button from "react-bootstrap/Button";
+import { Form, FormControl } from "react-bootstrap";
+import { FaStar } from "react-icons/fa";
 
 function AddComment({ individualCoffeeSpot, setIndividualCoffeeSpot, user }) {
   const { id, rating } = individualCoffeeSpot;
@@ -52,26 +53,28 @@ function AddComment({ individualCoffeeSpot, setIndividualCoffeeSpot, user }) {
           placeholder="Enter your comment..."
           maxLength="200"
           style={{
-            resize: 'none',
-            height: '100px',
-            width: '500px'
+            resize: "none",
+            height: "100px",
+            width: "500px",
           }}
         />
-        <select
-          value={rating}
-          type="integer"
-          defaultValue={"default"}
-          onChange={(e) => setNewRating(e.target.value)}
-          
-        >
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
+        <div className="star-rating py-2">
+          {[1, 2, 3, 4, 5].map((value) => (
+            <FaStar
+              key={value}
+              color={value <= newRating ? "#ffc107" : "#e4e5e9"}
+              onMouseEnter={() => setNewRating(value)}
+              onMouseLeave={() => setNewRating(0)}
+              size={30}
+              onClick={() => setNewRating(value)}
+              style={{ cursor: "pointer" }}
+            />
+          ))}
+        </div>
         <div className="p-2 justify-content-center d-flex">
-          <Button variant="secondary"  type="submit">Submit</Button>
+          <Button variant="secondary" type="submit">
+            Submit
+          </Button>
         </div>
       </Form>
     </div>
