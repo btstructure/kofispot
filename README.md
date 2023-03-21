@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## __KofiSpot__ <br>
+KofiSpot is a web application that allows users to create and store their reviews of coffee shops in NYC. The backend of the application is built with Ruby on Rails and uses PostgreSQL as a database, while the frontend is built with React. User authentication is implemented using bcrypt encryption.
 
-Things you may want to cover:
+## __Installation__ <br>
+Before you can run the application, you must have PostgreSQL 12 installed and a PostgreSQL server running.
 
-* Ruby version
+To install the application, follow these steps:
 
-* System dependencies
+1. Clone this repository to your local machine.
+2. Open a terminal and navigate to the root directory of the repository.
+3. Run `bundle install` to install the necessary Ruby gems.
+4. Run `rails db:create` to create the PostgreSQL database.
+5. Run `rails db:migrate` to run the database migrations.
+6. Run `rails s -p 3001` to start the Rails server.
+7. Next, you need to start the frontend:
 
-* Configuration
+Open a new terminal window and navigate to the client directory.
+1. Run `npm install` to install the necessary Node.js packages.
+2. Run `npm start` to start the React development server.
+3. The application should now be running on http://localhost:3000/.
 
-* Database creation
+## __Usage__ <br>
+When you first run the application, you will be prompted to sign up or log in. Once you are logged in, you can create, edit, and delete your reviews of coffee shops in NYC.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
