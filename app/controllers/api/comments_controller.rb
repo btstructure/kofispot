@@ -6,7 +6,7 @@ class Api::CommentsController < ApplicationController
   
   def show
     comments = Comment.find_by!(id: params[:id])
-    render json: comment, status: :ok
+    render json: comments, status: :ok
   end
 
   def create 

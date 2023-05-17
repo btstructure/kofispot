@@ -5,18 +5,19 @@ import { FaStar } from "react-icons/fa";
 
 function AddComment({ individualCoffeeSpot, setIndividualCoffeeSpot, user }) {
   const { id, rating } = individualCoffeeSpot;
-  console.log(individualCoffeeSpot);
 
   const [newComment, setNewComment] = useState("");
   const [newRating, setNewRating] = useState(1);
 
-  function addComment(newComment) {
+  function addComment(newComment, newRating) {
+    const updatedComments = [...individualCoffeeSpot.comments, newComment];
+    const updatedAverageRating =
+      updatedComments.reduce((sum, comment) => sum + comment.rating, 0) /
+      updatedComments.length;
     setIndividualCoffeeSpot((v) => ({
       ...v,
       comments: [...v.comments, newComment],
-      average_rating:
-        v.average_rating +
-        (newRating - v.average_rating) / (v.comments.length + 1),
+      average_rating: updatedAverageRating.toFixed(1),
     }));
   }
 
@@ -36,7 +37,7 @@ function AddComment({ individualCoffeeSpot, setIndividualCoffeeSpot, user }) {
     })
       .then((response) => response.json())
       .then((comment) => {
-        addComment(comment);
+        addComment(comment, newRating);
       });
   }
 
@@ -64,7 +65,7 @@ function AddComment({ individualCoffeeSpot, setIndividualCoffeeSpot, user }) {
               key={value}
               color={value <= newRating ? "#ffc107" : "#e4e5e9"}
               onMouseEnter={() => setNewRating(value)}
-              onMouseLeave={() => setNewRating(0)}
+              onMouseLeave={() => setNewRating(newRating)} // Keep the current rating when leaving
               size={30}
               onClick={() => setNewRating(value)}
               style={{ cursor: "pointer" }}

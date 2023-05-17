@@ -14,10 +14,24 @@ class Api::UsersController < ApplicationController
     render json: user, status: :ok, serializer: UserwithcommentSerializer
   end
 
+  def update_password
+    user = User.find(session[:user_id])
+
+    if user.update(user_password_params)
+      render json: {message: 'Password successfully updated'}, status: :ok
+    else
+      render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def user_params
     params.permit(:username, :password, :password_confirmation)
+  end
+
+  def user_password_params 
+    params.require(:user).permit(:password, :password_confirmation)
   end
 
 

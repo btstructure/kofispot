@@ -8,7 +8,6 @@ function Home({ user, setUser }) {
     fetch("/api/coffeespots")
       .then((response) => response.json())
       .then(setCoffeeSpots);
-    console.log(coffeeSpots);
   }, []);
 
   return (
