@@ -43,23 +43,30 @@ function MyProfile({ user, setUser }) {
       {error && <p>{error}</p>}
       {successMessage && <p>{successMessage}</p>}
       <form onSubmit={handlePasswordChange}>
-        <div>
-          <label>New Password:</label>
+        <div className="mt-4">
+          <label className="mr-2">New Password:</label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className="rounded-l-md px-2 py-1"
           />
         </div>
-        <div>
-          <label>Confirm Password:</label>
+        <div className="mt-2">
+          <label className="mr-2">Confirm Password:</label>
           <input
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
+            className="rounded-l-md px-2 py-1"
           />
         </div>
-        <button type="submit">Change Password</button>
+        <button
+          type="submit"
+          className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Change Password
+        </button>
       </form>
     </div>
   );
