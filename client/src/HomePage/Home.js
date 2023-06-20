@@ -3,7 +3,6 @@ import CoffeeSpotCard from "../MainPage/CoffeeSpotCard";
 
 function Home({ user, setUser }) {
   const [coffeeSpots, setCoffeeSpots] = useState([]);
-
   useEffect(() => {
     fetch("/api/coffeespots")
       .then((response) => response.json())

@@ -3,9 +3,7 @@ Rails.application.routes.draw do
     resources :events
     resources :coffee_spots
     resources :comments
-    resources :users do 
-      patch :update_password, on: :collection
-    end
+    patch '/users/:username/update_password', to: 'users#update_password'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

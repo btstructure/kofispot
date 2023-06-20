@@ -15,12 +15,12 @@ class Api::UsersController < ApplicationController
   end
 
   def update_password
-    user = User.find(session[:user_id])
-
-    if user.update(user_password_params)
-      render json: {message: 'Password successfully updated'}, status: :ok
+    user = User.find_by(username: params[:username])
+  
+    if user && user.update(user_password_params)
+      render json: { message: 'Password successfully updated' }, status: :ok
     else
-      render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
+      render json: { errors: user&.errors&.full_messages || ['User not found'] }, status: :unprocessable_entity
     end
   end
 

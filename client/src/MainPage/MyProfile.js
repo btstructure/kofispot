@@ -14,14 +14,16 @@ function MyProfile({ user, setUser }) {
       return;
     }
 
-    fetch("/api/users/update_password", {
+    fetch(`/api/users/${user.username}/update_password`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        password: password,
-        password_confirmation: confirmPassword,
+        user: {
+          password: password,
+          password_confirmation: confirmPassword,
+        },
       }),
     })
       .then((response) => {
