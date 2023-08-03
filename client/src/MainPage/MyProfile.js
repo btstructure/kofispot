@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 function MyProfile({ user, setUser }) {
   const [password, setPassword] = useState("");
@@ -39,37 +41,37 @@ function MyProfile({ user, setUser }) {
   };
 
   return (
-    <div className="text-white">
+    <div className="container mx-auto my-5 p-4 rounded bg-white bg-opacity-50 text-white" style={{ maxWidth: "500px" }}>
       <h1>My Profile</h1>
       <h2>Username: {user.username}</h2>
-      {error && <p>{error}</p>}
-      {successMessage && <p>{successMessage}</p>}
-      <form onSubmit={handlePasswordChange}>
-        <div className="mt-4">
-          <label className="mr-2">New Password:</label>
-          <input
+      {error && <p className="text-danger">{error}</p>}
+      {successMessage && <p className="text-success">{successMessage}</p>}
+      <Form onSubmit={handlePasswordChange} className="d-flex flex-column align-items-center">
+        <Form.Group className="mt-4">
+          <Form.Label className="mr-2">New Password:</Form.Label>
+          <Form.Control
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="rounded-l-md px-2 py-1"
           />
-        </div>
-        <div className="mt-2">
-          <label className="mr-2">Confirm Password:</label>
-          <input
+        </Form.Group>
+        <Form.Group className="mt-2">
+          <Form.Label className="mr-2">Confirm Password:</Form.Label>
+          <Form.Control
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             className="rounded-l-md px-2 py-1"
           />
-        </div>
-        <button
+        </Form.Group>
+        <Button
           type="submit"
-          className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="mt-4 btn btn-primary"
         >
           Change Password
-        </button>
-      </form>
+        </Button>
+      </Form>
     </div>
   );
 }

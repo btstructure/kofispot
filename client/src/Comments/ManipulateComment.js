@@ -7,22 +7,25 @@ function ManipulateComment({
   setEditComment,
   editComment,
 }) {
+  
   function handleDelete() {
     fetch(`/api/deletecomment/${comment.id}`, {
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then(
+      .then((deletedComment) => {
         setIndividualCoffeeSpot((v) => ({
           ...v,
-          comments: v.comments.filter((e) => e != comment),
+          comments: v.comments.filter((e) => e !== comment),
           average_rating:
-            (v.average_rating * individualCoffeeSpot.comments.length -
-              comment.rating) /
-            (individualCoffeeSpot.comments.length - 1),
-        }))
-      );
+            (
+              v.average_rating * individualCoffeeSpot.comments.length -
+              comment.rating
+            ) / (individualCoffeeSpot.comments.length - 1).toFixed(2), // Add toFixed(2) here
+        }));
+      });
   }
+  
 
   return (
     <div>

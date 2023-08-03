@@ -15,39 +15,47 @@ function IndividualCoffeeSpot({ user }) {
   }, []);
 
   return (
-    <div className="d-flex justify-content-center align-items-center text-white">
-      <div>
-        <p className="d-flex justify-content-center fs-1">
-          {individualCoffeeSpot.name}
-        </p>
-        <div className="justify-content-center align-items-center d-flex">
-          <img
-            style={{
-              height: 400,
-              width: 800,
-              objectFit: "cover",
-            }}
-            src={individualCoffeeSpot.image_url}
-          />
+    <div className="container">
+      <div className="row">
+        <div className="col-md-6">
+          <h1 className="text-center text-white">
+            {individualCoffeeSpot.name}
+          </h1>
+          <div className="d-flex justify-content-center mb-3">
+            <img
+              style={{
+                height: 400,
+                width: "100%",
+                objectFit: "cover",
+              }}
+              src={individualCoffeeSpot.image_url}
+              alt={individualCoffeeSpot.name}
+            />
+          </div>
+          <div className="py-2 text-center">
+            <div className="bg-white rounded p-3">
+              {individualCoffeeSpot.average_rating ? (
+                <>
+                  <p>Rating: {individualCoffeeSpot.average_rating}/5</p>
+                  <p>Address: {individualCoffeeSpot.location}</p>
+                  <p>Phone Number: {individualCoffeeSpot.phonenumber}</p>
+                  <p>Description: {individualCoffeeSpot.description}</p>
+                </>
+              ) : (
+                <>
+                  <p>Be the first to give a rating!!</p>
+                  <p>Address: {individualCoffeeSpot.location}</p>
+                  <p>Phone Number: {individualCoffeeSpot.phonenumber}</p>
+                  <p>Description: {individualCoffeeSpot.description}</p>
+                </>
+              )}
+            </div>
+          </div>
         </div>
-        <div className="py-2">
-        <p className="justify-content-center d-flex">
-          {individualCoffeeSpot.average_rating}/5
-        </p>
-        <p className="justify-content-center d-flex">
-          {individualCoffeeSpot.location}
-        </p>
-        <p className="justify-content-center d-flex">
-          {individualCoffeeSpot.phonenumber}
-        </p>
-        <p className="justify-content-center d-flex">
-          {individualCoffeeSpot.description}
-        </p>
-        </div>
-        <div>
-          {user &&
-            individualCoffeeSpot["comments"]?.map((comment, e) => (
-              <div className="d-flex justify-content-center align-items-center">
+        <div className="col-md-6">
+          <div className="d-flex flex-column h-100">
+            {user &&
+              individualCoffeeSpot["comments"]?.map((comment, e) => (
                 <IndividualCoffeeCommentCard
                   key={e}
                   comment={comment}
@@ -55,15 +63,15 @@ function IndividualCoffeeSpot({ user }) {
                   setIndividualCoffeeSpot={setIndividualCoffeeSpot}
                   user={user}
                 />
-              </div>
-            ))}
-        </div>
-        <div className="justify-content-center d-flex">
-          <AddComment
-            individualCoffeeSpot={individualCoffeeSpot}
-            setIndividualCoffeeSpot={setIndividualCoffeeSpot}
-            user={user}
-          />
+              ))}
+            <div className="d-flex justify-content-center align-items-center mt-auto mb-3">
+              <AddComment
+                individualCoffeeSpot={individualCoffeeSpot}
+                setIndividualCoffeeSpot={setIndividualCoffeeSpot}
+                user={user}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -7,6 +7,7 @@ import Navbar from "react-bootstrap/Navbar";
 
 function NavBar({ user, setUser }) {
   const navigate = useNavigate();
+
   function handleLogout() {
     fetch("/api/logout", { method: "DELETE" }).then((response) => {
       if (response.ok) {
@@ -29,27 +30,40 @@ function NavBar({ user, setUser }) {
   }
 
   return (
-    <Navbar className="navbar d-flex justify-content-center">
+    <Navbar className="navbar navbar-expand-lg navbar-dark bg-transparent">
       <Container>
-        <Navbar.Brand className="px-3 text-white fs-5">
-          KofiSpot <BiCoffeeTogo  />
+        <Navbar.Brand className="d-flex align-items-center text-white fs-4">
+          <BiCoffeeTogo style={{ fontSize: "2rem", marginRight: "0.5rem" }} />
+          KofiSpot
         </Navbar.Brand>
-        <Navbar.Text className="d-flex justify-content-center text-white fs-5">
-          Welcome {user.username}!
-        </Navbar.Text>
-        <Navbar.Collapse className="navbar-content justify-content-end align-items-start flex-row">
-          <Nav.Link className="px-3 text-white  fs-5" onClick={handleHome}>
-            Home
-          </Nav.Link>
-          <Nav.Link className="px-3 text-white fs-5" onClick={handleAbout}>
-            About
-          </Nav.Link>
-          <Nav.Link className="px-3 text-white fs-5" onClick={handleMyProfile}>
-            My Profile
-          </Nav.Link>
-          <Nav.Link className="px-3 text-white fs-5" onClick={handleLogout}>
-            Logout
-          </Nav.Link>
+        <Navbar.Toggle aria-controls="navbarContent" />
+        <Navbar.Collapse id="navbarContent" className="justify-content-end">
+          <Nav>
+            <Nav.Link
+              className="px-3 text-white fs-5 fw-bold"
+              onClick={handleHome}
+            >
+              Home
+            </Nav.Link>
+            <Nav.Link
+              className="px-3 text-white fs-5 fw-bold"
+              onClick={handleAbout}
+            >
+              About
+            </Nav.Link>
+            <Nav.Link
+              className="px-3 text-white fs-5 fw-bold"
+              onClick={handleMyProfile}
+            >
+              My Profile
+            </Nav.Link>
+            <Nav.Link
+              className="px-3 text-white fs-5 fw-bold"
+              onClick={handleLogout}
+            >
+              Logout
+            </Nav.Link>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>

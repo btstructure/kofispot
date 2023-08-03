@@ -9,6 +9,7 @@ function IndividualCoffeeCommentCard({
   individualCoffeeSpot,
 }) {
   const [editComment, setEditComment] = useState("");
+
   function handleSave(e) {
     e.preventDefault();
     fetch(`/api/newcomment/${comment.id}`, {
@@ -31,38 +32,45 @@ function IndividualCoffeeCommentCard({
   }
 
   return (
-    <div className="p-2">
-      <div className="border rounded">
-        <div className="px-3">
-          <div>
-            <p className="d-flex justify-content-center">
-              User: {comment.user.username}
-            </p>
-              {comment.rating} <FaStar />
-            <p></p>
-          </div>
-
-          {editComment ? (
-            <form onSubmit={handleSave}>
-              <input
-                value={editComment}
-                onChange={(e) => setEditComment(e.target.value)}
-              />
-              <button>Save</button>
-            </form>
-          ) : (
-            <p>{comment.comment}</p>
-          )}
-          {comment.user.id === user.id && (
-            <ManipulateComment
-              comment={comment}
-              individualCoffeeSpot={individualCoffeeSpot}
-              setIndividualCoffeeSpot={setIndividualCoffeeSpot}
-              setEditComment={setEditComment}
-              editComment={editComment}
-            />
-          )}
+    <div className="p-2 d-flex justify-content-center text-black">
+      <div
+        className="border rounded p-3"
+        style={{
+          backgroundColor: "rgba(255, 255, 255)",
+          overflow: "hidden",
+          width: "100%",
+        }}
+      >
+        <div>
+          <p className="d-flex justify-content-center">
+            User: {comment.user.username}
+          </p>
+          {comment.rating} <FaStar />
         </div>
+
+        {editComment ? (
+          <form onSubmit={handleSave} className="d-flex justify-content-center">
+            <input
+              value={editComment}
+              onChange={(e) => setEditComment(e.target.value)}
+              className="form-control mb-2"
+            />
+            <button type="submit" className="btn btn-primary btn-sm">
+              Save
+            </button>
+          </form>
+        ) : (
+          <p>{comment.comment}</p>
+        )}
+        {comment.user.id === user.id && (
+          <ManipulateComment
+            comment={comment}
+            individualCoffeeSpot={individualCoffeeSpot}
+            setIndividualCoffeeSpot={setIndividualCoffeeSpot}
+            setEditComment={setEditComment}
+            editComment={editComment}
+          />
+        )}
       </div>
     </div>
   );

@@ -4,12 +4,12 @@ import { Form, FormControl } from "react-bootstrap";
 import { FaStar } from "react-icons/fa";
 
 function AddComment({ individualCoffeeSpot, setIndividualCoffeeSpot, user }) {
-  const { id, rating } = individualCoffeeSpot;
+  const { id } = individualCoffeeSpot;
 
   const [newComment, setNewComment] = useState("");
   const [newRating, setNewRating] = useState(1);
 
-  function addComment(newComment, newRating) {
+  function addComment(newComment) {
     const updatedComments = [...individualCoffeeSpot.comments, newComment];
     const updatedAverageRating =
       updatedComments.reduce((sum, comment) => sum + comment.rating, 0) /
@@ -17,7 +17,7 @@ function AddComment({ individualCoffeeSpot, setIndividualCoffeeSpot, user }) {
     setIndividualCoffeeSpot((v) => ({
       ...v,
       comments: [...v.comments, newComment],
-      average_rating: updatedAverageRating.toFixed(1),
+      average_rating: updatedAverageRating.toFixed(2),
     }));
   }
 
@@ -61,15 +61,15 @@ function AddComment({ individualCoffeeSpot, setIndividualCoffeeSpot, user }) {
         />
         <div className="star-rating py-2">
           {[1, 2, 3, 4, 5].map((value) => (
-            <FaStar
-              key={value}
-              color={value <= newRating ? "#ffc107" : "#e4e5e9"}
-              onMouseEnter={() => setNewRating(value)}
-              onMouseLeave={() => setNewRating(newRating)} // Keep the current rating when leaving
-              size={30}
-              onClick={() => setNewRating(value)}
-              style={{ cursor: "pointer" }}
-            />
+         <FaStar
+         key={value}
+         color={value <= newRating ? "#ffc107" : "#e4e5e9"}
+         onMouseEnter={() => setNewRating(value)}
+         onMouseLeave={() => {}} 
+         size={30}
+         onClick={() => setNewRating(value)} 
+         style={{ cursor: "pointer" }}
+       />
           ))}
         </div>
         <div className="p-2 justify-content-center d-flex">

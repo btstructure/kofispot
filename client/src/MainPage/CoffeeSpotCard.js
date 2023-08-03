@@ -9,30 +9,28 @@ function CoffeeSpotCard({ coffeespot }) {
   }
 
   return (
-    <div>
-      <div onClick={handleNavigate} coffeespot={coffeespot}>
-        <p className="text-white d-flex justify-content-center">
-          {coffeespot.name}
-        </p>
-        <div className="d-flex justify-content-center"
-        >
-          <img
-            src={coffeespot.image_url}
-            alt=""
-            style={{
-              width: 200,
-              height: 200,
-              objectFit: "cover",
-            }}
-            className="rounded-circle"
-          />
-        </div>
-        <p className="text-white d-flex justify-content-center">
+    <div
+      onClick={handleNavigate}
+      className="card text-white bg-white bg-opacity-25 shadow rounded"
+      style={{ width: "350px", height: "400px", marginBottom: "15px" }} // Increased width and height to make the cards bigger
+    >
+      <img
+        src={coffeespot.image_url}
+        alt=""
+        style={{
+          width: "100%",
+          height: "250px", 
+          objectFit: "cover",
+          borderTopLeftRadius: "0.25rem",
+          borderTopRightRadius: "0.25rem",
+        }}
+      />
+      <div className="card-body text-center">
+        <h5 className="card-title text-white">{coffeespot.name}</h5>
+        <p className="card-text text-white mb-0">
           {coffeespot.average_rating}/5
         </p>
-        <p className="text-white d-flex justify-content-center">
-          {coffeespot.location}
-        </p>
+        <p className="card-text text-white">{coffeespot.location}</p>
       </div>
     </div>
   );
