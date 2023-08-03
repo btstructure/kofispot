@@ -11,25 +11,28 @@ function CarouselComponent() {
   }, []);
 
   return (
-    <Carousel>
-      {coffeeSpots.map((coffeespot) => (
-        <Carousel.Item key={coffeespot.id}>
-          <div style={{
-            height: '500px',
-            width: 100,
-            objectFit: 'cover'
-          }}>
-            <img
-              alt=""
-              src={coffeespot.image_url}
-            />
-          </div>
-          <Carousel.Caption>
-            <h3>{coffeespot.name}</h3>
-          </Carousel.Caption>
-        </Carousel.Item>
-      ))}
-    </Carousel>
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <Carousel slide={false}>
+        {coffeeSpots.map((coffeespot) => (
+          <Carousel.Item key={coffeespot.id}>
+            <div
+              style={{
+                height: "600px",
+                width: 800,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
+              <img alt="" src={coffeespot.image_url} style={{height: "100%", width: '100%', objectFit: 'cover'}}/>
+            </div>
+            <Carousel.Caption>
+              <h3>{coffeespot.name}</h3>
+            </Carousel.Caption>
+          </Carousel.Item>
+        ))}
+      </Carousel>
+    </div>
   );
 }
 

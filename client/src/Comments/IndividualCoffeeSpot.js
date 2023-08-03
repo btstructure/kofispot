@@ -33,7 +33,12 @@ function IndividualCoffeeSpot({ user }) {
             />
           </div>
           <div className="py-2 text-center">
-            <div className="bg-white rounded p-3">
+            <div className="rounded p-3"
+             style={{
+              backgroundColor: "rgba(205,170,130)",
+              overflow: "hidden",
+              width: "100%",
+            }}>
               {individualCoffeeSpot.average_rating ? (
                 <>
                   <p>Rating: {individualCoffeeSpot.average_rating}/5</p>

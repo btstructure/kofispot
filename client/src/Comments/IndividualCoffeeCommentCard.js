@@ -36,7 +36,7 @@ function IndividualCoffeeCommentCard({
       <div
         className="border rounded p-3"
         style={{
-          backgroundColor: "rgba(255, 255, 255)",
+          backgroundColor: "rgba(205,170,130)",
           overflow: "hidden",
           width: "100%",
         }}

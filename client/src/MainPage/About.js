@@ -3,7 +3,7 @@ import CarouselComponent from "./CarouselComponent";
 
 function About() {
   return (
-    <div>
+    <div className="text-white">
       <div>
         <h1>About</h1>
         <p>
