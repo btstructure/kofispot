@@ -57,7 +57,7 @@ function IndividualCoffeeSpot({ user }) {
             </div>
           </div>
         </div>
-        <div className="col-md-6">
+        <div className="col-md-6 mt-5">
           <div className="d-flex flex-column h-100">
             {user &&
               individualCoffeeSpot["comments"]?.map((comment, e) => (

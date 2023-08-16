@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { BiCoffeeTogo } from "react-icons/bi";
 import Container from "react-bootstrap/Container";
@@ -54,6 +54,7 @@ function NavBar({ user, setUser }) {
             <Nav.Link
               className="px-3 text-white fs-5 fw-bold"
               onClick={handleMyProfile}
+              user={user}
             >
               My Profile
             </Nav.Link>
