@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_20_162029) do
+ActiveRecord::Schema[7.0].define(version: 2026_01_30_234321) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,6 +46,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_162029) do
     t.index ["users_id"], name: "index_events_on_users_id"
   end
 
+  create_table "reports", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "report_type"
+    t.jsonb "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reports_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -55,4 +64,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_162029) do
     t.index ["events_id"], name: "index_users_on_events_id"
   end
 
+  add_foreign_key "reports", "users"
 end

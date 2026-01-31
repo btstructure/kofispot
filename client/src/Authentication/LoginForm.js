@@ -6,10 +6,12 @@ import Button from "react-bootstrap/Button";
 function LoginForm({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
+    setError(null);
     fetch("/api/login", {
       method: "POST",
       headers: {
@@ -20,7 +22,8 @@ function LoginForm({ onLogin }) {
       .then((response) => response.json())
       .then((d) => {
         if (d.errors) {
-          alert(d.errors[0]);
+          setError("Incorrect username or password");
+          setPassword("");
         } else {
           onLogin(d);
           navigate("/Home");
@@ -42,6 +45,9 @@ function LoginForm({ onLogin }) {
           <Form.Label className="text-white d-flex justify-content-center align-items-center fs-3">
             Login
           </Form.Label>
+          {error && (
+            <p className="text-danger text-center">{error}</p> 
+          )}
           <div className="p-2">
             <Form.Control
               type="text"

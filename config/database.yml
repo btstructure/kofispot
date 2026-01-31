@@ -23,6 +23,10 @@ development:
 #   <<: *default
 #   database: db/test.sqlite3
 
+test:
+  <<: *default
+  database: coffeeshop_test
+
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>

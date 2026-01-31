@@ -18,6 +18,9 @@ Rails.application.routes.draw do
     post "/signup", to: "users#create"
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
+    #generating user report
+    get "/reports/user_comments/:user_id", to: "reports#index"
+    post "/reports/user_comments/:user_id", to: "reports#create"
   end
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

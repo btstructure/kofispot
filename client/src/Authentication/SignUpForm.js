@@ -7,10 +7,18 @@ function SignUpForm({ onSignUp }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
+    
+
+    if (password !== passwordConfirmation) {
+      setErrors(["Passwords do not match"]);
+      return;
+    }
+
     fetch("/api/signup", {
       method: "POST",
       headers: {
@@ -25,8 +33,9 @@ function SignUpForm({ onSignUp }) {
       .then((response) => response.json())
       .then((d) => {
         if (d.errors) {
-          alert(d.errors[0]);
+          setErrors(d.errors);
         } else {
+          setErrors([]);
           onSignUp(true);
           navigate("/Home");
         }
@@ -47,6 +56,15 @@ function SignUpForm({ onSignUp }) {
           <Form.Label className="text-white d-flex justify-content-center align-items-center fs-3">
             Sign Up
           </Form.Label>
+          <div>
+            {errors.length > 0 && (
+              <div className="text-danger">
+                {errors.map((err, i) => (
+                  <p key={i}>{err}</p>
+                ))}
+              </div>
+            )}
+          </div>
           <div className="py-2">
             <Form.Control
               type="text"

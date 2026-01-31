@@ -14,6 +14,7 @@ import "./App.css";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [search, setSearch] = useState(""); 
 
   useEffect(() => {
     fetch("/api/me").then((response) => {
@@ -30,12 +31,13 @@ function App() {
           KofiSpot <BiCoffeeTogo />
         </h1>
       )}
-      {user ? <NavBar user={user} setUser={setUser} /> : null}
+      {user ? <NavBar user={user} setUser={setUser} onSearchChange={setSearch} /> : null}
       <Routes>
         {user && (
           <Route
             path="/Home"
-            element={<Home user={user} setUser={setUser} />}
+            element={<Home user={user} setUser={setUser}  search={search}  />}
+           
           />
         )}
         <Route path="/" element={<Login onLogin={setUser} />} />
