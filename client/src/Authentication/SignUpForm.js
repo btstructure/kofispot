@@ -37,7 +37,7 @@ function SignUpForm({ onSignUp }) {
         } else {
           setErrors([]);
           onSignUp(true);
-          navigate("/Home");
+          navigate("/Login")
         }
       });
   }
