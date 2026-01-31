@@ -1,0 +1,22 @@
+current directory: /root/kofispot/vendor/bundle/ruby/3.2.0/gems/io-console-0.5.11/ext/io/console
+/root/.rbenv/versions/3.2.2/bin/ruby extconf.rb
+checking for termios.h... yes
+checking for cfmakeraw() in termios.h... yes
+checking for sys/ioctl.h... yes
+checking for HAVE_RUBY_FIBER_SCHEDULER_H... yes
+creating Makefile
+
+current directory: /root/kofispot/vendor/bundle/ruby/3.2.0/gems/io-console-0.5.11/ext/io/console
+make DESTDIR\= sitearchdir\=./.gem.20260131-5029-32df3z sitelibdir\=./.gem.20260131-5029-32df3z clean
+
+current directory: /root/kofispot/vendor/bundle/ruby/3.2.0/gems/io-console-0.5.11/ext/io/console
+make DESTDIR\= sitearchdir\=./.gem.20260131-5029-32df3z sitelibdir\=./.gem.20260131-5029-32df3z
+compiling console.c
+linking shared-object io/console.so
+
+current directory: /root/kofispot/vendor/bundle/ruby/3.2.0/gems/io-console-0.5.11/ext/io/console
+make DESTDIR\= sitearchdir\=./.gem.20260131-5029-32df3z sitelibdir\=./.gem.20260131-5029-32df3z install
+/usr/bin/install -c -m 0755 console.so ./.gem.20260131-5029-32df3z/io
+
+current directory: /root/kofispot/vendor/bundle/ruby/3.2.0/gems/io-console-0.5.11/ext/io/console
+make DESTDIR\= sitearchdir\=./.gem.20260131-5029-32df3z sitelibdir\=./.gem.20260131-5029-32df3z clean

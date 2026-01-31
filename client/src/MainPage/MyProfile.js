@@ -21,6 +21,16 @@ function MyProfile({ user }) {
   const handleGenerateReport = () => {
     setLoadingReport(true);
     setError(null);
+    setSuccessMessage("");
+
+    if (password !== confirmPassword) {
+      setSuccessMessage("");
+      setError("Passwords do not match");
+
+      setPassword("");
+      setConfirmPassword("");
+      return;
+    }
 
     fetch(`/api/reports/user_comments/${user.id}`, {
       method: "POST",
@@ -32,36 +42,47 @@ function MyProfile({ user }) {
   };
 
   const handlePasswordChange = (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    if (password !== confirmPassword) {
-      setError("Passwords do not match");
-      return;
-    }
+  setError(null);
+  setSuccessMessage("");
 
-    fetch(`/api/users/${user.username}/update_password`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
+  if (password !== confirmPassword) {
+    setError("Passwords do not match");
+    return;
+  }
+
+  fetch(`/api/users/${user.username}/update_password`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      user: {
+        password: password,
+        password_confirmation: confirmPassword,
       },
-      body: JSON.stringify({
-        user: {
-          password: password,
-          password_confirmation: confirmPassword,
-        },
-      }),
+    }),
+  })
+    .then((response) => {
+      if (response.ok) {
+        setError(null); 
+        setSuccessMessage("Password successfully updated");
+      } else {
+        setSuccessMessage("");
+        setError("Failed to update password");
+      }
     })
-      .then((response) => {
-        if (response.ok) {
-          setSuccessMessage("Password successfully updated");
-        } else {
-          setError("Failed to update password");
-        }
-      })
-      .catch((error) => {
-        setError("An error occurred. Please try again.");
-      });
-  };
+    .catch(() => {
+      setSuccessMessage("");
+      setError("An error occurred. Please try again.");
+    })
+    .finally(() => {
+      setPassword("");
+      setConfirmPassword("");
+    });
+};
+
 
   return (
     <div

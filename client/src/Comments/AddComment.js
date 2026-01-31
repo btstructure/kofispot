@@ -38,6 +38,8 @@ function AddComment({ individualCoffeeSpot, setIndividualCoffeeSpot, user }) {
       .then((response) => response.json())
       .then((comment) => {
         addComment(comment, newRating);
+        setNewComment("");
+        setNewRating(1);
       });
   }
 
@@ -61,15 +63,15 @@ function AddComment({ individualCoffeeSpot, setIndividualCoffeeSpot, user }) {
         />
         <div className="star-rating py-2">
           {[1, 2, 3, 4, 5].map((value) => (
-         <FaStar
-         key={value}
-         color={value <= newRating ? "#ffc107" : "#e4e5e9"}
-         onMouseEnter={() => setNewRating(value)}
-         onMouseLeave={() => {}} 
-         size={30}
-         onClick={() => setNewRating(value)} 
-         style={{ cursor: "pointer" }}
-       />
+            <FaStar
+              key={value}
+              color={value <= newRating ? "#ffc107" : "#e4e5e9"}
+              onMouseEnter={() => setNewRating(value)}
+              onMouseLeave={() => {}}
+              size={30}
+              onClick={() => setNewRating(value)}
+              style={{ cursor: "pointer" }}
+            />
           ))}
         </div>
         <div className="p-2 justify-content-center d-flex">

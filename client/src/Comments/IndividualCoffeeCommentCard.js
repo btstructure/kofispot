@@ -9,6 +9,7 @@ function IndividualCoffeeCommentCard({
   individualCoffeeSpot,
 }) {
   const [editComment, setEditComment] = useState("");
+  
 
   function handleSave(e) {
     e.preventDefault();

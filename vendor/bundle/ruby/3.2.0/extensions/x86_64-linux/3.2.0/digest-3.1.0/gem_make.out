@@ -1,0 +1,21 @@
+current directory: /root/kofispot/vendor/bundle/ruby/3.2.0/gems/digest-3.1.0/ext/digest/sha2
+/root/.rbenv/versions/3.2.2/bin/ruby extconf.rb
+checking for u_int8_t... yes
+checking for sys/cdefs.h... yes
+creating Makefile
+
+current directory: /root/kofispot/vendor/bundle/ruby/3.2.0/gems/digest-3.1.0/ext/digest/sha2
+make DESTDIR\= sitearchdir\=./.gem.20260131-5029-y44boy sitelibdir\=./.gem.20260131-5029-y44boy clean
+
+current directory: /root/kofispot/vendor/bundle/ruby/3.2.0/gems/digest-3.1.0/ext/digest/sha2
+make DESTDIR\= sitearchdir\=./.gem.20260131-5029-y44boy sitelibdir\=./.gem.20260131-5029-y44boy
+compiling sha2init.c
+compiling sha2.c
+linking shared-object digest/sha2.so
+
+current directory: /root/kofispot/vendor/bundle/ruby/3.2.0/gems/digest-3.1.0/ext/digest/sha2
+make DESTDIR\= sitearchdir\=./.gem.20260131-5029-y44boy sitelibdir\=./.gem.20260131-5029-y44boy install
+/usr/bin/install -c -m 0755 sha2.so ./.gem.20260131-5029-y44boy/digest
+
+current directory: /root/kofispot/vendor/bundle/ruby/3.2.0/gems/digest-3.1.0/ext/digest/sha2
+make DESTDIR\= sitearchdir\=./.gem.20260131-5029-y44boy sitelibdir\=./.gem.20260131-5029-y44boy clean

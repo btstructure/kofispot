@@ -1,0 +1,19 @@
+current directory: /root/kofispot/vendor/bundle/ruby/3.2.0/gems/debug-1.6.1/ext/debug
+/root/.rbenv/versions/3.2.2/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /root/kofispot/vendor/bundle/ruby/3.2.0/gems/debug-1.6.1/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20260131-5029-15pm2r sitelibdir\=./.gem.20260131-5029-15pm2r clean
+
+current directory: /root/kofispot/vendor/bundle/ruby/3.2.0/gems/debug-1.6.1/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20260131-5029-15pm2r sitelibdir\=./.gem.20260131-5029-15pm2r
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+
+current directory: /root/kofispot/vendor/bundle/ruby/3.2.0/gems/debug-1.6.1/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20260131-5029-15pm2r sitelibdir\=./.gem.20260131-5029-15pm2r install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20260131-5029-15pm2r/debug
+
+current directory: /root/kofispot/vendor/bundle/ruby/3.2.0/gems/debug-1.6.1/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20260131-5029-15pm2r sitelibdir\=./.gem.20260131-5029-15pm2r clean
